@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
+
 import Hero from "./pages/Hero";
 import Section from "./pages/Section";
 import Navbar from "./components/Navbar";
@@ -9,7 +11,8 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-white text-black px-4 md:px-10">
+      <ToastContainer />
+      <div className="px-4 text-black bg-white md:px-10">
         <Navbar />
         <Hero />
         <Section />

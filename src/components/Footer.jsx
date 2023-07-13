@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { BsArrowRight } from "react-icons/bs";
+import { toast } from "react-toastify";
 import {
   BiLogoLinkedin,
   BiLogoFacebook,
   BiLogoInstagram,
   BiLogoTwitter,
 } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 const datas = [
   {
@@ -24,23 +27,61 @@ const datas = [
 ];
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const [data, setData] = useState({
+    email: "",
+    checked: "",
+  });
+
+  const handleInput = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    console.log(data);
+    try {
+      const response = await axios.post(
+        process.env.REACT_APP_SHOPPE_BACKEND_EMAIL,
+        data,
+        { headers: { "content-type": "application/x-www-form-urlencoded" } }
+      );
+      setData("");
+      toast("Thank you for subscribing.");
+      // navigate("/home");
+    } catch (error) {
+      toast("Oh, Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <div className="pt-8 border-t-2">
       <div className="items-center justify-between md:flex md:flex-row-reverse ">
-        <form>
+        <form onSubmit={sendEmail}>
           <div className="w-[18rem] md:w-[30rem] flex items-center border-b-2 border-b-black">
             <input
               type="email"
-              placeholder="Give an email to get the newsletter."
+              placeholder="Give an email to get our newsletter."
+              required
+              name="email"
+              onChange={handleInput}
               className="w-full p-2 bg-white outline-none "
             />
-            <BsArrowRight className="text-cl-acn hover:text-[24px] duration-300" />
+            <button type="submit">
+              <BsArrowRight className="text-cl-acn hover:text-[24px] duration-300" />
+            </button>
           </div>
           <div className="flex pt-2">
-            <input type="checkbox" name="" id="" className="checkbox" />
-            <p className="pl-4">
+            <input
+              required
+              type="checkbox"
+              name="checked"
+              onChange={handleInput}
+              className="checkbox"
+            />
+            <label className="pl-4">
               I agree to the website`s terms and conditions
-            </p>
+            </label>
           </div>
         </form>
         <div className="md:flex  gap-8 uppercase text-[grey] pt-6 md:pt-0">

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Hamburger from "hamburger-react";
 import { BsCart, BsSearch, BsPerson } from "react-icons/bs";
+
+import Logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
-import Logo from '../assets/logo.svg'
 
 const navLinks = [
   { title: "shop", id: "shop" },
@@ -16,13 +17,38 @@ const navLinks = [
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  
+
+  // the use effect is use for refresh back to the top of the page 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   return (
-    <div className="navbar sticky top-0 z-20 bg-white">
-      <div className="flex-1">
-        <img src={Logo} alt="home" className=" cursor-pointer" />
-      </div>
-      <ul className="list-none hidden md:flex flex-row gap-10">
+    <div className="sticky top-0 z-20 bg-white navbar">
+      <Link
+        to="/"
+        onClick={() => {
+          window.scrollTo(0, 0);
+        }}
+        className="flex-1"
+      >
+        <img src={Logo} alt="home" className="cursor-pointer " />
+      </Link>
+      <ul className="flex-row hidden gap-10 list-none md:flex">
         {navLinks.map((nav) => (
           <li
             key={nav.id}
@@ -38,8 +64,8 @@ const Navbar = () => {
 
       {/* mobile menu */}
 
-      <div className="md:hidden flex flex-1 justify-end items-center">
-        <div className="flex justify-between items-center gap-6">
+      <div className="flex items-center justify-end flex-1 md:hidden">
+        <div className="flex items-center justify-between gap-6">
           <BsCart className="text-3xl cursor-pointer" />
           <Hamburger toggled={toggle} toggle={setToggle} />
         </div>
@@ -48,7 +74,7 @@ const Navbar = () => {
             !toggle ? "hidden" : "flex"
           } absolute top-12 right-0 my-3 min-w-[140px] min-h-screen`}
         >
-          <ul className="list-none justify-start bg-white menu">
+          <ul className="justify-start list-none bg-white menu">
             {navLinks.map((nav) => (
               <li
                 key={nav.id}
@@ -61,7 +87,7 @@ const Navbar = () => {
                 }}
               >
                 <a
-                  className="rounded-md duration-300 hover:text-cl-acn capitalize py-4"
+                  className="py-4 capitalize duration-300 rounded-md hover:text-cl-acn"
                   href={`#${nav.id}`}
                 >
                   {nav.title} {nav.name}
