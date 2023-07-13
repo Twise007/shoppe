@@ -13,13 +13,22 @@
 }
 
 :root {
-  --color-white: #fcfcf0;
-  --color-primary: #000000;
-  --color-sec: #211563;
-  --color-hoverT: #dfd9ff;
-  --color-btn: #915eff;
+  --color-action: #a18a69;
+  --color-white: #f2f2f2;
 }
 
+.swiper-pagination {
+  margin: 20px;
+}
 
+.swiper-pagination .swiper-pagination-bullet {
+  opacity: 1;
+  background-color: white;
+  padding: 6px;
+}
 
-
+.swiper-pagination .swiper-pagination-bullet-active {
+  background-color: transparent;
+  border: 1px solid #f2f2f2;
+  padding: 8px;
+}

@@ -6,11 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "bg-white": "var(--color-white)",
-        "bg-primary": "var(--color-primary)",
-        "bg-btn": "var(--color-btn)",
-        "bg-sec": "var(--color-sec)",
-        "bg-hoverT": "var(--color-hoverT)",
+        "cl-acn": "var(--color-action)",
+        "white": "var(--color-white)",
       },
     },
   },
