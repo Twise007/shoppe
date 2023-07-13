@@ -25,10 +25,10 @@ const datas = [
 
 const Footer = () => {
   return (
-    <div className="border-t-2 pt-8">
-      <div className="md:flex md:flex-row-reverse justify-between items-center ">
+    <div className="pt-8 border-t-2">
+      <div className="items-center justify-between md:flex md:flex-row-reverse ">
         <form>
-          <div className="w-[20rem] md:w-[30rem] flex items-center border-b-2 border-b-black">
+          <div className="w-[18rem] md:w-[30rem] flex items-center border-b-2 border-b-black">
             <input
               type="email"
               placeholder="Give an email to get the newsletter."
@@ -37,21 +37,25 @@ const Footer = () => {
             <BsArrowRight className="text-cl-acn hover:text-[24px] duration-300" />
           </div>
           <div className="flex pt-2">
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" className="checkbox" />
             <p className="pl-4">
               I agree to the website`s terms and conditions
             </p>
           </div>
         </form>
         <div className="md:flex  gap-8 uppercase text-[grey] pt-6 md:pt-0">
-          <p className="my-3 w-fit md:my-0 cursor-not-allowed">contact</p>
-          <p className="my-3 w-fit md:my-0 cursor-not-allowed">terms of service</p>
-          <p className="my-3 w-fit md:my-0 cursor-not-allowed">shipping and returns</p>
+          <p className="my-3 cursor-not-allowed w-fit md:my-0">contact</p>
+          <p className="my-3 cursor-not-allowed w-fit md:my-0">
+            terms of service
+          </p>
+          <p className="my-3 cursor-not-allowed w-fit md:my-0">
+            shipping and returns
+          </p>
         </div>
       </div>
-      <div className="py-4 md:pt-8 md:flex md:flex-row-reverse justify-between items-center">
+      <div className="items-center justify-between py-4 md:pt-8 md:flex md:flex-row-reverse">
         <div className="flex gap-8 ">
-          <p className=" flex items-center">Follow us on</p>
+          <p className="flex items-center ">Follow us on</p>
           <ul className="flex flex-row items-center justify-start h-16 gap-2 list-none ">
             {datas.map((data, index) => (
               <div key={index} onClick={() => window.open(data.link, "_blank")}>

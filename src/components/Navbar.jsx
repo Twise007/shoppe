@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Hamburger from "hamburger-react";
 import { BsCart, BsSearch, BsPerson } from "react-icons/bs";
 import { Link } from "react-router-dom";

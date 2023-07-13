@@ -87,4 +87,4 @@ const sectionData = [
 
 
 
-export{heroBanner}
+export{heroBanner, sectionData}

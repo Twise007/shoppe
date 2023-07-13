@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-white text-black px-10">
+      <div className="bg-white text-black px-4 md:px-10">
         <Navbar />
         <Hero />
         <Section />

@@ -27,7 +27,7 @@ const Hero = () => {
     >
       <div>
         {heroBanner.map((banner, index) => (
-          <SwiperSlide>
+          <SwiperSlide key={index}>
             <div
               className="h-[90vh] hero relative rounded-2xl mb-4 object-contain"
               style={{
