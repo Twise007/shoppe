@@ -4,6 +4,7 @@ import "./index.css";
 import Hero from "./pages/Hero";
 import Section from "./pages/Section";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={""} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );
