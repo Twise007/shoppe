@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+
 import { BsArrowRight } from "react-icons/bs";
 import { toast } from "react-toastify";
 import {
@@ -27,7 +28,8 @@ const datas = [
 ];
 
 const Footer = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //this is use to navigate to back to home after sending the mail
+  const [isLoading, setIsLoading] = useState(false); // loading state
   const [data, setData] = useState({
     email: "",
     checked: "",
@@ -40,6 +42,7 @@ const Footer = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
     console.log(data);
+    setIsLoading(true);
     try {
       const response = await axios.post(
         process.env.REACT_APP_SHOPPE_BACKEND_EMAIL,
@@ -48,9 +51,11 @@ const Footer = () => {
       );
       setData("");
       toast("Thank you for subscribing.");
-      // navigate("/home");
+      setIsLoading(false);
     } catch (error) {
       toast("Oh, Something went wrong. Please try again.");
+      setIsLoading(false);
+      navigate("/");
     }
   };
 
@@ -67,9 +72,16 @@ const Footer = () => {
               onChange={handleInput}
               className="w-full p-2 bg-white outline-none "
             />
-            <button type="submit">
-              <BsArrowRight className="text-cl-acn hover:text-[24px] duration-300" />
-            </button>
+            {!isLoading && (
+              <button type="submit">
+                <BsArrowRight className="text-cl-acn hover:text-[24px] duration-300" />
+              </button>
+            )}
+            {isLoading && (
+              <button disabled>
+                <span className="loading loading-dots loading-lg"></span>
+              </button>
+            )}
           </div>
           <div className="flex pt-2">
             <input

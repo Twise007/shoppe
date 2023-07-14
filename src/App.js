@@ -14,11 +14,10 @@ function App() {
       <ToastContainer />
       <div className="px-4 text-black bg-white md:px-10">
         <Navbar />
-        <Hero />
-        <Section />
         <Routes>
-          <Route path="/" element={""} />
+          <Route path="/" element={<Hero />} />
         </Routes>
+        <Section />
         <Footer />
       </div>
     </BrowserRouter>
