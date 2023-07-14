@@ -32,7 +32,7 @@ const Footer = () => {
   const [isLoading, setIsLoading] = useState(false); // loading state
   const [data, setData] = useState({
     email: "",
-    checked: "",
+    // checked: "",       this is added bcos of the check button for the customer to accept our term and conditions.
   });
 
   const handleInput = (e) => {
@@ -41,7 +41,6 @@ const Footer = () => {
 
   const sendEmail = async (e) => {
     e.preventDefault();
-    console.log(data);
     setIsLoading(true);
     try {
       const response = await axios.post(
@@ -55,7 +54,7 @@ const Footer = () => {
     } catch (error) {
       toast("Oh, Something went wrong. Please try again.");
       setIsLoading(false);
-      navigate("/");
+      navigate("/"); // navigate to the home page
     }
   };
 
