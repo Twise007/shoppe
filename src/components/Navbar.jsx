@@ -38,7 +38,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="sticky top-0 z-20 bg-white navbar">
+    <div className="sticky top-0 z-20 bg-white navbar" id="#home">
       <Link
         to="/"
         onClick={() => {

@@ -41,6 +41,7 @@ const Footer = () => {
 
   const sendEmail = async (e) => {
     e.preventDefault();
+    // console.log(data); to log the result to console
     setIsLoading(true);
     try {
       const response = await axios.post(
@@ -54,7 +55,7 @@ const Footer = () => {
     } catch (error) {
       toast("Oh, Something went wrong. Please try again.");
       setIsLoading(false);
-      navigate("/"); // navigate to the home page
+      navigate(`/`); // navigate to another page but unfortunately we currently have only a page
     }
   };
 
@@ -86,8 +87,8 @@ const Footer = () => {
             <input
               required
               type="checkbox"
-              name="checked"
-              onChange={handleInput}
+              // name="checked"  incase we want to know if the customer accept our term and condition
+              // onChange={handleInput}
               className="checkbox"
             />
             <label className="pl-4">
