@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import image1 from "../assets/image1.png";
 import img2 from "../assets/img2.png";
 import img3 from "../assets/img3.png";
@@ -5,8 +6,6 @@ import img4 from "../assets/img4.png";
 import img5 from "../assets/img5.png";
 import img6 from "../assets/img6.png";
 import img7 from "../assets/img7.png";
-
-
 
 const heroBanner = [
   {
@@ -39,7 +38,7 @@ const heroBanner = [
   },
 ];
 
-const sectionData = [
+const productArray = [
   {
     id: "1",
     image: img7,
@@ -84,7 +83,13 @@ const sectionData = [
   },
 ];
 
+function getProductData(id) {
+  let productData = productArray.find((product) => product.id === id);
+  if (productData ==undefined) {
+    toast("Product data does not exist for ID: " + id)
+    return undefined
+  }
+  return productData
+}
 
-
-
-export{heroBanner, sectionData}
+export { heroBanner, productArray, getProductData };
