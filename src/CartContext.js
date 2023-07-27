@@ -80,7 +80,10 @@ export function CartProvider({ children }) {
    return totalCost;
  }
 
- 
+  //  const totalPriceHistory = productHistory.reduce(
+  //    (total, item) => total + item.price,
+  //    0
+  //  );
 
 
   const contextValue = {

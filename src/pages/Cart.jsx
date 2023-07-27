@@ -12,14 +12,14 @@ const Cart = () => {
     0
   );
 
-  const sendEmail = async (e) => {
+  const cartForm = async (e) => {
     e.preventDefault();
     navigate(`/`); // navigate to another page but unfortunately we currently have only a page
   };
 
   return (
-    <div className="text-center ">
-      <form onSubmit={sendEmail} className=" min-h-[80vh]">
+    <div className="flex flex-col justify-center w-full text-center">
+      <form onSubmit={cartForm} className=" min-h-[80vh]">
         <h1 className="py-6 text-2xl">Shopping Cart</h1>
 
         {productsCount > 0 ? (
@@ -32,15 +32,15 @@ const Cart = () => {
               />
             ))}
 
-            <h1 className="m-2 text-lg text-center md:text-start">
-              Total : ${" "}
-              <span className="text-4xl font-semibold text-cl-acn">
+            <h1 className="m-2 text-lg text-center md:text-end md:mr-8">
+              Sub-Total : ${" "}
+              <span className="text-3xl font-semibold text-cl-acn">
                 {cart.getTotalCost().toFixed(2)}
               </span>
             </h1>
             <button
               type="submit"
-              className="w-full py-1 mx-2 mt-2 duration-300 border border-green-500 rounded-lg hover:bg-green-500 hover:text-white "
+              className="w-full py-1 my-2 duration-300 border border-green-500 rounded-lg hover:bg-green-500 hover:text-white "
             >
               Purchase All Items
             </button>
@@ -51,7 +51,7 @@ const Cart = () => {
           </div>
         )}
       </form>
-      <Link to='/' className="p-2 px-4 my-3 text-xl text-white rounded-lg cursor-pointer bg-cl-acn">Go back To The Home Screen</Link>
+      <Link to='/' className="p-2 my-3 text-xl text-white rounded-lg cursor-pointer bg-cl-acn">Go back To The Home Screen</Link>
     </div>
   );
 };

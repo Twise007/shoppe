@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Customer from "../assets/customer.png";
-import { BsCamera, BsArrowDownCircle, BsFillPenFill } from "react-icons/bs";
+import { BsArrowDownCircle, BsFillPenFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { CartContext } from "../CartContext";
+import ProfileChart from "../components/ProfileChart";
 
 const initialState = {
   name: "babatunde oke",
@@ -11,10 +13,16 @@ const initialState = {
 };
 
 const Profile = () => {
-  const [open, setOpen] = useState(false);
+  const cart = useContext(CartContext);
 
+  const productsCount = cart.items.reduce(
+    (sum, product) => sum + product.quantity,
+    0
+  );
+
+  const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState(initialState);
-  const { name, email, coupon, password } = formData;
+  const { name, email, coupon } = formData;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -96,7 +104,7 @@ const Profile = () => {
             />
           </div>
           <div
-            className={` shadow-xl mx-4 my-2 p-2  duration-500 rounded-xl ${
+            className={` shadow-xl mx-4 my-2 p-2 duration-500 rounded-xl ${
               open ? "h-fit" : "hidden"
             }`}
           >
@@ -106,28 +114,37 @@ const Profile = () => {
                 <thead>
                   <tr className="text-xl text-black">
                     <th>Item Description</th>
+                    <th>Quantity</th>
                     <th>Price</th>
+                    <th>Total</th>
                   </tr>
                 </thead>
-                <tbody>
-                  {/* row 1 this will later be a map object */}
-                  <tr>
-                    <td>Quality Control Specialist</td>
-                    <td>400</td>
-                  </tr>
-                  {/* row 2 */}
-                  <tr>
-                    <td>Desktop Support Technician</td>
-                    <td>200</td>
-                  </tr>
-                </tbody>
-                {/* head */}
-                <tfoot>
-                  <tr className="text-xl text-white">
-                    <th>Total Price</th>
-                    <th className="text-2xl text-cl-acn">600</th>
-                  </tr>
-                </tfoot>
+                {productsCount > 0 ? (
+                  <>
+                    {cart.items.map((productHistory, index) => (
+                      <ProfileChart
+                        key={index}
+                        id={productHistory.id}
+                        quantity={productHistory.quantity}
+                      />
+                    ))}
+                    <tfoot>
+                      <tr className="text-xl text-black ">
+                        <th></th>
+                        <th>Total Price :</th>
+                        <th></th>
+                        <th className="text-2xl text-cl-acn">
+                          <span className="text-lg text-black">$</span>{" "}
+                          {cart.getTotalCost().toFixed(2)}
+                        </th>
+                      </tr>
+                    </tfoot>
+                  </>
+                ) : (
+                  <div className="mt-2 text-3xl font-normal text-center capitalize text-rose-500">
+                    There are no items 
+                  </div>
+                )}
               </table>
             </div>
           </div>

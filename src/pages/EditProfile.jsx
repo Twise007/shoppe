@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Customer from "../assets/customer.png";
 import { useNavigate } from "react-router-dom";
 import { MdCloudUpload } from "react-icons/md";
 
@@ -11,9 +10,9 @@ const initialState = {
 };
 
 const EditProfile = () => {
-  const [open, setOpen] = useState(false);
+
   const navigate = useNavigate();
-  const [faqImage, setFaqImage] = useState("");
+  const [profileImage, setprofileImage] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
 
   const [formData, setFormData] = useState(initialState);
@@ -25,11 +24,11 @@ const EditProfile = () => {
   };
 
   const handleImageChange = (e) => {
-    setFaqImage(e.target.files[0]);
+    setprofileImage(e.target.files[0]);
     setImagePreview(URL.createObjectURL(e.target.files[0]));
   };
 
-  const sendEmail = async (e) => {
+  const updateProfile = async (e) => {
     e.preventDefault();
     navigate(`/profile`); // navigate to another page but unfortunately we currently have only a page
   };
@@ -41,7 +40,7 @@ const EditProfile = () => {
           Edit Profile
         </h1>
       </div>
-      <form onSubmit={sendEmail} className="md:mx-6">
+      <form onSubmit={updateProfile} className="md:mx-6">
         <div className="flex flex-col items-center -mt-20 md:justify-between md:flex-row">
           <div className="flex flex-col md:gap-6 md:items-baseline md:flex-row label-text">
             <div
@@ -55,12 +54,12 @@ const EditProfile = () => {
                   type="file"
                   accept=".jpeg, .png, .jpg"
                   onChange={(e) => handleImageChange(e)}
-                  required
                   className="hidden object-cover w-full h-full rounded-full image-field "
                 />
                 {imagePreview != null ? (
                   <img
                     src={imagePreview}
+                    alt="edit img"
                     className="object-cover w-full h-full p-1 rounded-full"
                   />
                 ) : (
