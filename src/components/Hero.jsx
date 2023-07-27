@@ -36,12 +36,12 @@ const Hero = () => {
               }}
             >
               <div className="hero-overlay bg-opacity-30 rounded-2xl"></div>
-              <div className="left-10  absolute capitalize text-white text-xl">
+              <div className="absolute text-xl text-white capitalize left-10">
                 <h5 className="py-1">{banner.title}</h5>
                 <p className="py-1">
                   {"$"} {banner.price}
                 </p>
-                <button className="border rounded-l p-1 px-4 mt-8 hover:bg-cl-acn">
+                <button className="p-1 px-4 mt-8 border rounded-l hover:bg-cl-acn">
                   View Product
                 </button>
               </div>

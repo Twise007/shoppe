@@ -9,28 +9,28 @@ import img7 from "../assets/img7.png";
 
 const heroBanner = [
   {
-    id: "1",
+    id: 1,
     image: image1,
     link: "goldbighoop",
     price: 68.80,
     title: "gold big hoops",
   },
   {
-    id: "2",
+    id: 2,
     image: img2,
     link: "hairpin",
     price: 30.00,
     title: "hair pin",
   },
   {
-    id: "3",
+    id: 3,
     image: img3,
     link: "plainnecklace",
     price: 19.00,
     title: "plain necklace",
   },
   {
-    id: "4",
+    id: 4,
     image: img4,
     link: "kaedehairpin",
     price: 30.00,
@@ -40,42 +40,42 @@ const heroBanner = [
 
 const productArray = [
   {
-    id: "1",
+    id: 1,
     image: img7,
     link: "liraearrings",
     price: 20.00,
     title: "lira earrings",
   },
   {
-    id: "2",
+    id: 2,
     image: img2,
     link: "hairpin",
     price: 30.00,
     title: "hair pin",
   },
   {
-    id: "3",
+    id: 3,
     image: img3,
     link: "plainnecklace",
     price: 19.00,
     title: "plain necklace",
   },
   {
-    id: "4",
+    id: 4,
     image: img4,
     link: "kaedehairpin",
     price: 30.00,
     title: "kaede hair pin set of 3",
   },
   {
-    id: "5",
+    id: 5,
     image: img5,
     link: "halearrings",
     price: 29.00,
     title: "hal earrings",
   },
   {
-    id: "6",
+    id: 6,
     image: img6,
     link: "yukiset3",
     price: 29.00,

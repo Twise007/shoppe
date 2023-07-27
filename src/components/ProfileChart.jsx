@@ -9,7 +9,7 @@ const ProfileChart = (props) => {
   const productData = getProductData(id);
   return (
     <tbody className="text-xl font-medium border-b border-black">
-      <td>{productData.title}</td>
+      <td className="capitalize ">{productData.title}</td>
       <td>{quantity}</td>
       <td>$ {productData.price}</td>
       <td>$ {(quantity * productData.price).toFixed(2)}</td>
