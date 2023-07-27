@@ -5,7 +5,15 @@ import "./index.css";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { Home, Cart, Blog, Profile, Shop, Story } from "./pages/index.js";
+import {
+  Home,
+  Cart,
+  Blog,
+  Profile,
+  Shop,
+  Story,
+  EditProfile,
+} from "./pages/index.js";
 import CartProvider from './CartContext'
 
 function App() {
@@ -22,6 +30,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/edit-profile" element={<EditProfile />} />
           </Routes>
 
           <Footer />
