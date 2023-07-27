@@ -71,14 +71,17 @@ export function CartProvider({ children }) {
     }
   }
 
-  function getTotalCost(id) {
-    let totalCost = 0;
-    cartProducts.map((cartItem) => {
-      const productData = getProductData(cartItem.id);
-      totalCost += productData.price * cartItem.quantity;
-    });
-    return totalCost;
-  }
+ function getTotalCost() {
+   let totalCost = 0;
+   cartProducts.map((cartItem) => {
+     const productData = getProductData(cartItem.id);
+     totalCost += productData.price * cartItem.quantity;
+   });
+   return totalCost;
+ }
+
+ 
+
 
   const contextValue = {
     items: cartProducts,
@@ -95,6 +98,3 @@ export function CartProvider({ children }) {
 }
 
 export default CartProvider;
-
-//context (cart, addcart, removecart)
-// Provider -> gives your react app access to all the things in the context

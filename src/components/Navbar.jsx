@@ -147,12 +147,12 @@ const Navbar = () => {
                   setActive(nav.title);
                 }}
               >
-                <a
+                <Link
                   className="py-4 capitalize duration-300 rounded-md hover:text-cl-acn"
-                  href={`#${nav.id}`}
+                  to={nav.id}
                 >
                   {nav.title} {nav.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
