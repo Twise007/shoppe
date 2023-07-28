@@ -43,13 +43,13 @@ const CountDown = () => {
 
   return (
     <div className="flex items-center justify-center gap-1 pr-2 text-xl md:gap-2">
-      <h1 className="">
+      <h1 className="flex">
         {timerDays}d <span className="hidden md:flex">:</span>
       </h1>
-      <h1>
+      <h1 className="flex">
         {timerHours}h <span className="hidden md:flex">:</span>
       </h1>
-      <h1>
+      <h1 className="flex">
         {timerMinutes}m <span className="hidden md:flex">:</span>
       </h1>
       <h1>{timerSeconds}s </h1>
