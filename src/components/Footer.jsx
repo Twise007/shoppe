@@ -57,6 +57,7 @@ const Footer = () => {
       setIsLoading(false);
       navigate(`/`); // navigate to another page but unfortunately we currently have only a page
     }
+    e.target.reset();
   };
 
   return (
