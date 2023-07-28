@@ -85,7 +85,7 @@ const productArray = [
 
 function getProductData(id) {
   let productData = productArray.find((product) => product.id === id);
-  if (productData ==undefined) {
+  if (productData === undefined) {
     toast("Product data does not exist for ID: " + id)
     return undefined
   }

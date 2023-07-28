@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { productArray, getProductData } from "./constants/index.js";
+import {  getProductData } from "./constants/index.js";
 
 export const CartContext = createContext({
   items: [],
@@ -49,7 +49,7 @@ export function CartProvider({ children }) {
   function deleteFromCart(id) {
     setCartProducts((cartProducts) =>
       cartProducts.filter((currentProduct) => {
-        return currentProduct.id != id;
+        return currentProduct.id !== id;
       })
     );
   }
@@ -57,7 +57,7 @@ export function CartProvider({ children }) {
   function removeOneToCart(id) {
     const quantity = getProductQuantity(id);
 
-    if (quantity == 1) {
+    if (quantity === 1) {
       deleteFromCart(id);
     } else {
       setCartProducts(
@@ -79,11 +79,6 @@ export function CartProvider({ children }) {
    });
    return totalCost;
  }
-
-  //  const totalPriceHistory = productHistory.reduce(
-  //    (total, item) => total + item.price,
-  //    0
-  //  );
 
 
   const contextValue = {

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const ProductCard = (props) => {
   const product = props.product;
   const cart = useContext(CartContext);
-  const productQuantity = cart.getProductQuantity(product.id);
+
 
   // create a state for favourite and storing to local host storage
   const [favourite, setFavourite] = useState(false);

@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { heroBanner } from "../constants";
 import { productArray } from "../constants/index";
 import { CartContext } from "../CartContext";
 import { IoFlash } from "react-icons/io5";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { EffectFade, Pagination, Autoplay } from "swiper/modules";
@@ -10,9 +11,11 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 import "../index.css";
+import CountDown from "./CountDown";
 
 const Sidebar = () => {
   const cart = useContext(CartContext);
+
 
   return (
     <div className="min-h-[78vh]  ">
@@ -56,15 +59,14 @@ const Sidebar = () => {
         </div>
       </Swiper>
       <div>
-        <div className="flex justify-between p-2 mb-2 text-white capitalize bg-red-500 rounded-lg">
-          <h5 className="flex items-center gap-1">
-            flash sales{" "}
-            <span className="text-3xl text-[#FF9900]">
-              <IoFlash />
-            </span>
-          </h5>
-          <div>
-            time left <span></span>
+        <div className="flex items-center gap-2 p-2 mb-2 text-white capitalize bg-red-500 rounded-lg md:justify-between">
+          <div className="flex items-center md:gap-1">
+            <p>flash sales</p>
+            <IoFlash className="text-xl md:text-3xl text-[#FF9900] mr-2 hidden md:flex" />
+          </div>
+          <div className="flex items-center justify-center md:gap-2">
+            <span className="hidden md:flex">time left</span>
+            <CountDown />
           </div>
           <p>see all...</p>
         </div>

@@ -141,9 +141,9 @@ const Profile = () => {
                     </tfoot>
                   </>
                 ) : (
-                  <div className="mt-2 text-3xl font-normal text-center capitalize text-rose-500">
+                  <tbody className="mt-2 text-3xl font-normal text-center capitalize text-rose-500">
                     There are no items 
-                  </div>
+                  </tbody>
                 )}
               </table>
             </div>
