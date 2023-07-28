@@ -73,7 +73,7 @@ const Sidebar = () => {
         <div className="grid grid-cols-2 gap-2 lg:gap-8 xl:grid-cols-3 place-items-center">
           {productArray.map((product, index) => (
             <div key={index}>
-              <div className="relative rounded-md hover:shadow w-36 md:w-72 lg:w-96 md:pt-0 group">
+              <div className="relative w-32 rounded-md hover:shadow md:w-72 lg:w-96 md:pt-0 group">
                 <img src={product.image} alt="section gallery" />
 
                 <button

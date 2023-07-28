@@ -13,7 +13,7 @@ const ProductCard = (props) => {
   const [favourite, setFavourite] = useState(false);
 
   return (
-    <div className="relative rounded-md hover:shadow w-36 md:w-72 lg:w-96 md:pt-0 group">
+    <div className="relative w-32 rounded-md hover:shadow md:w-72 lg:w-96 md:pt-0 group">
       <img src={product.image} alt="section gallery" />
 
       <div className="absolute top-20 left-4 md:top-36 md:left-24 lg:top-44 lg:left-32 lg:gap-8 flex gap-4 items-center justify-center text-[24px] opacity-0  group-hover:opacity-100">
