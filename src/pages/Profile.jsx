@@ -142,7 +142,7 @@ const Profile = () => {
                   </>
                 ) : (
                   <tbody className="mt-2 text-3xl font-normal text-center capitalize text-rose-500">
-                    There are no items 
+                    There are no items
                   </tbody>
                 )}
               </table>

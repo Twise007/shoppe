@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { heroBanner } from "../constants";
 import { productArray } from "../constants/index";
 import { CartContext } from "../CartContext";
@@ -15,7 +15,6 @@ import CountDown from "./CountDown";
 
 const Sidebar = () => {
   const cart = useContext(CartContext);
-
 
   return (
     <div className="min-h-[78vh]  ">
