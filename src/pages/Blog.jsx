@@ -5,7 +5,7 @@ const Blog = () => {
     <div className="min-h-[80vh]">
       <div>
         <h3>our patterns</h3>
-        <div>Under Construction</div>
+        <h1>Under Construction</h1>
       </div>
     </div>
   );
